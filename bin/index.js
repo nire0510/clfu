@@ -5,13 +5,27 @@ const actions = require('../actions');
 const pkg = require('../package.json');
 
 program
-  .version(pkg.version)
-  .option('-p, --popular', 'Show all commands sorted by votes')
-  // .option('-t, --tag <tag>', 'Show commands tagged with <tag>')
-  .option('-u, --using <command>', 'Show commands using <command>')
-  .option('-m, --matching <text>', 'Show commands which contain <text> in description or in command')
+  .version(pkg.version);
+
+program
+  .command('popular')
+  .description('Show all commands sorted by votes')
   .option('-f, --filter <text>', 'Filter only commands which contain <text> in description')
   .option('-s, --skip <items>', 'Skip first <items> items')
-  .parse(process.argv);
+  .action(actions.popular);
 
-actions.show(program);
+program
+  .command('matching <match>')
+  .description('Show commands which contain <match> in description or in command')
+  .option('-f, --filter <text>', 'Filter only commands which contain <text> in description')
+  .option('-s, --skip <items>', 'Skip first <items> items')
+  .action(actions.matching);
+
+program
+  .command('using <command>')
+  .description('Show commands using <command>')
+  .option('-f, --filter <text>', 'Filter only commands which contain <text> in description')
+  .option('-s, --skip <items>', 'Skip first <items> items')
+  .action(actions.using);
+
+program.parse(process.argv);

@@ -1,6 +1,5 @@
 const config = require('config');
 const rp = require('request-promise');
-const pkg = require('./package.json');
 require('colors');
 
 /**
@@ -38,32 +37,24 @@ function print(commands, skip = 0, filter) {
 }
 
 module.exports = {
-  /**
-   * Prints 
-   * @param {*} program 
-   */
-  show(program) {
-    if (program.popular) {
-      request('browse/sort-by-votes', program.skip)
-        .then((commands) => {
-          print(commands, program.skip, program.filter);
-        });
-    }
-    else if (program.using) {
-      request(`using/${program.using}`, program.skip)
-        .then((commands) => {
-          print(commands, program.skip, program.filter);
-        });
-    }
-    else if (program.matching) {
-      request(`matching/${program.matching}/${Buffer.from(program.matching).toString('base64')}`, program.skip)
-        .then((commands) => {
-          print(commands, program.skip, program.filter);
-        });
-    }
-    else {
-      console.log('>', pkg.name.green.bold, pkg.description.bold);
-      program.help();
-    }
+  popular(options) {
+    request('browse/sort-by-votes', options.skip)
+      .then((commands) => {
+        print(commands, options.skip, options.filter);
+      });
+  },
+
+  matching(match, options) {
+    request(`matching/${match}/${Buffer.from(match).toString('base64')}`, options.skip)
+      .then((commands) => {
+        print(commands, options.skip, options.filter);
+      });
+  },
+
+  using(command, options) {
+    request(`using/${command}`, options.skip)
+      .then((commands) => {
+        print(commands, options.skip, options.filter);
+      });
   },
 };
