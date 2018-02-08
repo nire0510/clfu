@@ -1,6 +1,6 @@
 {
   "name": "clfu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Reveal command-line gems (commandlinefu.com cli tool)",
   "main": "bin/index.js",
   "bin": {
@@ -23,6 +23,7 @@
     "colors": "^1.1.2",
     "commander": "^2.14.1",
     "config": "^1.29.4",
+    "request": "^2.83.0",
     "request-promise": "^4.2.2"
   },
   "devDependencies": {
