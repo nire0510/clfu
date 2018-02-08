@@ -2,9 +2,10 @@
 
 const program = require('commander');
 const actions = require('../actions');
+const pkg = require('../package.json');
 
 program
-  .version('1.0.2')
+  .version(pkg.version)
   .option('-p, --popular', 'Show all commands sorted by votes')
   // .option('-t, --tag <tag>', 'Show commands tagged with <tag>')
   .option('-u, --using <command>', 'Show commands using <command>')

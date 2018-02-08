@@ -1,5 +1,6 @@
 const config = require('config');
 const rp = require('request-promise');
+const pkg = require('./package.json');
 require('colors');
 
 /**
@@ -61,6 +62,7 @@ module.exports = {
         });
     }
     else {
+      console.log('>', pkg.name.green.bold, pkg.description.bold);
       program.help();
     }
   },
