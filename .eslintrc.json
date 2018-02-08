@@ -1,0 +1,11 @@
+{
+    "extends": "airbnb-base",
+    "plugins": [
+        "import"
+    ],
+    "rules": {
+        "brace-style": ["error", "stroustrup"],
+        "no-plusplus": 0,
+        "no-console": 0
+    }
+}

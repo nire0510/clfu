@@ -1,0 +1,33 @@
+{
+  "name": "clfu",
+  "version": "1.0.0",
+  "description": "Reveal command-line gems (commandlinefu.com cli tool)",
+  "main": "bin/index.js",
+  "bin": {
+    "clfu": "bin/index.js"
+  },
+  "preferGlobal": true,
+  "scripts": {
+    "start": "node bin/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "bash",
+    "terminal",
+    "command"
+  ],
+  "author": "Nir Elbaz <nire0510@gmail.com> (http://nirelbaz.com)",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "commander": "^2.14.1",
+    "config": "^1.29.4",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.17.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0"
+  }
+}
