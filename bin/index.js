@@ -4,7 +4,7 @@ const program = require('commander');
 const actions = require('../actions');
 
 program
-  .version('0.1.0')
+  .version('1.0.2')
   .option('-p, --popular', 'Show all commands sorted by votes')
   // .option('-t, --tag <tag>', 'Show commands tagged with <tag>')
   .option('-u, --using <command>', 'Show commands using <command>')

@@ -60,5 +60,8 @@ module.exports = {
           print(commands, program.skip, program.filter);
         });
     }
+    else {
+      program.help();
+    }
   },
 };
