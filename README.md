@@ -2,7 +2,7 @@
 ## Reveal command-line gems ([commandlinefu.com](http://commandlinefu.com) cli tool)
 
 ### General
-Usage: index [options] [command]
+Usage: clfu [options] [command]
 
 
   Options:

@@ -1,14 +1,14 @@
 {
   "name": "clfu",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Reveal command-line gems (commandlinefu.com cli tool)",
-  "main": "bin/index.js",
+  "main": "bin/clfu.js",
   "bin": {
-    "clfu": "bin/index.js"
+    "clfu": "bin/clfu.js"
   },
   "preferGlobal": true,
   "scripts": {
-    "start": "node bin/index.js",
+    "start": "node bin/clfu.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
