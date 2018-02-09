@@ -18,17 +18,14 @@ function request(path, skip = 0) {
 /**
  * Prints commands on screen
  * @param {object[]} commands - Commands array
- * @param {number} [skip] - Number of results to skip
- * @param {string} [filter] - Text to filter commands
+ * @param {number} take - Number of commands to print
  */
-function print(commands, skip = 0, filter) {
+function print(commands, take) {
   if (commands) {
-    const re = new RegExp(filter, 'i');
-
     commands
       .forEach((command, index) => {
-        if (!filter || command.summary.search(re) >= 0) {
-          console.log(`${index + 1 + parseInt(skip, 10)}) ${command.summary.bold} (${command.votes} votes)`.green);
+        if (!take || index < take) {
+          console.log(`${index + 1}) ${command.summary.bold} (${command.votes} votes)`.green);
           console.log('>', command.command);
           console.log();
         }
@@ -36,25 +33,40 @@ function print(commands, skip = 0, filter) {
   }
 }
 
+function validate(command, options) {
+  if (Number.isNaN(options.skip) === true || (options.skip && /\D/.test(options.skip))) {
+    console.error('Skip must be a valid positive number');
+    process.exit();
+  }
+
+  if (Number.isNaN(options.take) === true || (options.take && (/\D/.test(options.take) || options.take > 25))) {
+    console.error('Take must be a valid positive number between 0 and 25');
+    process.exit();
+  }
+}
+
 module.exports = {
   popular(options) {
+    validate('popular', options);
     request('browse/sort-by-votes', options.skip)
       .then((commands) => {
-        print(commands, options.skip, options.filter);
+        print(commands, options.take);
       });
   },
 
   matching(match, options) {
+    validate('matching', options);
     request(`matching/${match}/${Buffer.from(match).toString('base64')}`, options.skip)
       .then((commands) => {
-        print(commands, options.skip, options.filter);
+        print(commands, options.take);
       });
   },
 
   using(command, options) {
+    validate('using', options);
     request(`using/${command}`, options.skip)
       .then((commands) => {
-        print(commands, options.skip, options.filter);
+        print(commands, options.take);
       });
   },
 };
