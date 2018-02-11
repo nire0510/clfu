@@ -1,7 +1,6 @@
 #clfu
 ## Reveal command-line gems ([commandlinefu.com](http://commandlinefu.com) cli tool)
 
-### General
 Usage: clfu [options] [command]
 
 
@@ -18,7 +17,7 @@ Usage: clfu [options] [command]
     using [options] <command>  Show commands using <command>
 
 ### Popular
-Usage: popular [options]
+Usage: clfu popular [options]
 
   Show all commands sorted by votes
 
@@ -30,7 +29,7 @@ Usage: popular [options]
     -h, --help      output usage information
 
 ### Matching
-Usage: matching [options] <text>
+Usage: clfu matching [options] <text>
 
   Show commands which contain <text> in description or in command
 
@@ -42,7 +41,7 @@ Usage: matching [options] <text>
     -h, --help      output usage information
 
 ### Using
-Usage: using [options] <command>
+Usage: clfu using [options] <command>
 
   Show commands using <command>
 
@@ -52,3 +51,6 @@ Usage: using [options] <command>
     -s, --skip <n>  Skip <n> items
     -t, --take <n>  Take only <n> items
     -h, --help      output usage information
+
+
+(node.js is required)

@@ -1,4 +1,3 @@
-const config = require('config');
 const rp = require('request-promise');
 require('colors');
 
@@ -10,7 +9,7 @@ require('colors');
  */
 function request(path, skip = 0) {
   return rp({
-    url: `${config.url}${path}/json/${skip}`,
+    url: `http://www.commandlinefu.com/commands/${path}/json/${skip}`,
     json: true,
   });
 }
