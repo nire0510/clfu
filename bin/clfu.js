@@ -36,6 +36,6 @@ program
 
 program.parse(process.argv);
 
-if (process.argv.length) {
+if (process.argv.length === 1) {
   program.help();
 }
