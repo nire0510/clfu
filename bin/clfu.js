@@ -28,4 +28,14 @@ program
   .option('-t, --take <n>', 'Take only <n> items', parseInt)
   .action(actions.using);
 
+program
+  .command('*')
+  .action(() => {
+    program.help();
+  });
+
 program.parse(process.argv);
+
+if (process.argv.length) {
+  program.help();
+}
