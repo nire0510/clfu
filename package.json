@@ -1,6 +1,6 @@
 {
   "name": "clfu",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Reveal command-line gems (commandlinefu.com cli tool)",
   "main": "bin/clfu.js",
   "bin": {
